@@ -35,7 +35,7 @@ def run_appium_server():
 @pytest.fixture(scope='session')
 def driver(run_appium_server):
     options = AppiumOptions().load_capabilities(u.android_utils.android_get_desired_capabilities())
-    options.set_capability("udid", run_appium_server())
+    options.set_capability("udid", run_appium_server)
     driver = webdriver.Remote(command_executor='http://localhost:4723/wd/hub', options=options)
     yield driver
 
